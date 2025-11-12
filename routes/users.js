@@ -9,4 +9,20 @@ router.get('/new', (req, res) => {
     res.send('New user form');
 });
 
+router.post('/', (req, res) => {
+
+});
+
+// router.get('/:ide', (req, res) => {
+//     res.send(`Getting User data: ${req.params.id}`);
+// });
+
+router.route('/:id').get((req, res) => {
+    res.send(`Getting User data: ${req.params.id}`);
+}).delete((req, res) => {
+    res.send(`Deleting User data: ${req.params.id}`);
+}).put((req, res) => {
+    res.send(`Updating User data: ${req.params.id}`);
+});
+
 module.exports = router;
