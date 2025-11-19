@@ -6,14 +6,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-    res.send('New user form');
+    res.render('users/new', {firstName: "Please enter your first name"});
+
 });
 
 router.post('/', (req, res) => {
     // res.send('Creating a new user');
     const names = req.body.firstName;
-    const isValid = firstName !=="";
-    if (!isValid) {
+    const isValid = names !=="";
+    if (isValid) {
         console.log(`Adding User: ${names}`);
         users.push({name: names});
         console.log(`New Set of Users: ${users}`);
@@ -21,7 +22,7 @@ router.post('/', (req, res) => {
     }
     else {
         console.log("Invalid User Data");
-        res.render("users/new", {firstName: firstName});
+        res.render("users/new", {firstName: names});
     }   
 });
 
