@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 app.use('/users', userRouter);
-app.use('/postsLocation', postRouter);
+app.use('/posts', postRouter);
 
 
 app.get('/', (req, res) => {
